@@ -1404,7 +1404,31 @@ public class RomanPrinterTest {
     }
 
     @Test
-    public void testPrint_ConCento(){
+    public void testPrint_ConCentouno(){
+        int romanNumber = 101;
+        String expected =
+
+                        "  _____\n"+
+                        " / ____|\n"+
+                        "| |\n"+
+                        "| |\n"+
+                        "| |____\n"+
+                        " \\_____|\n"+
+                        " _____\n"+
+                        "|_   _|\n"+
+                        "  | |\n"+
+                        "  | |\n"+
+                        " _| |_\n"+
+                        "|_____|\n";
+
+        String result = print(romanNumber);
+
+        assertTrue(expected.equals(result));
+    }
+
+
+    @Test
+    public void testPrint_ConCentuno(){
         int romanNumber = 100;
         String expected =
 
@@ -1419,17 +1443,6 @@ public class RomanPrinterTest {
 
         assertTrue(expected.equals(result));
     }
-
-    @Test
-    public void testPrint_ConCentuno(){
-        int romanNumber = 101;
-        String expected = null;
-
-        String result = print(romanNumber);
-
-        assertTrue(expected == result);
-    }
-
 
     @Test
     public void testPrint_ConInputMilleUno(){
