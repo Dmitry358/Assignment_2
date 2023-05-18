@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////
 
 
-////////////////////   V-3   ////////////////////
+////////////////////   V-6   ////////////////////
 
 
 package it.unipd.mtss;
@@ -89,8 +89,44 @@ public class IntegerToRomanTest{
 
     @Test //?????? DA SOSTITUIRE "assertTrue"
     public void testConvert_ConInputQuattro(){
-        String expected = null;
+        String expected = "IV";
         int number = 4;
+        boolean correct = true;
+
+        String result = convert(number);
+        if(expected != result) { correct = false;}
+
+        assertTrue(correct);
+    }
+
+    @Test //?????? DA SOSTITUIRE "assertTrue"
+    public void testConvert_ConInputCinque(){
+        String expected = "V";
+        int number = 5;
+        boolean correct = true;
+
+        String result = convert(number);
+        if(expected != result) { correct = false;}
+
+        assertTrue(correct);
+    }
+
+    @Test //?????? DA SOSTITUIRE "assertTrue"
+    public void testConvert_ConInputSei(){
+        String expected = "VI";
+        int number = 6;
+        boolean correct = true;
+
+        String result = convert(number);
+        if(expected != result) { correct = false;}
+
+        assertTrue(correct);
+    }
+
+    @Test //?????? DA SOSTITUIRE "assertTrue"
+    public void testConvert_ConInputSette(){
+        String expected = null;
+        int number = 7;
         boolean correct = true;
 
         String result = convert(number);
