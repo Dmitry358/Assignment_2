@@ -3,7 +3,7 @@
 // Dmitry Pluzhnikov 1169886
 ////////////////////////////////////////////////////////////////////
 
-////////////////////   V-10   ////////////////////
+////////////////////   V-20   ////////////////////
 
 package it.unipd.mtss;
 
@@ -51,8 +51,17 @@ public class RomanPrinter {
 
         else if(romanNumber == " ") { correctInput = false; }
 
-        else if(romanNumber.length() < 1 || romanNumber.length() > 4) {
+        // ???? DA TOGLIERE ??????
+        else if(romanNumber.length() < 1 || romanNumber.length() > 5) {
             correctInput = false;
+        }
+
+        else{
+           int aux = romanNumber.length();
+           if(aux>2 && romanNumber.charAt(0)=='X' && romanNumber.charAt(1)=='X')
+            {
+                correctInput = false;
+            }
         }
 
         return correctInput;
@@ -62,14 +71,6 @@ public class RomanPrinter {
         boolean correctInput = true;
 
         if(!isStrangeInput(romanNumber)){correctInput = false;}
-
-        else if(romanNumber.length() > 1 && romanNumber.charAt(0) == 'X') {
-            correctInput = false;
-        }
-
-        else if(romanNumber.length() > 2 && romanNumber.charAt(1) == 'X') {
-            correctInput = false;
-        }
 
         for (int i = 0; correctInput && i < romanNumber.length(); i++){
             char aux = romanNumber.charAt(i);
