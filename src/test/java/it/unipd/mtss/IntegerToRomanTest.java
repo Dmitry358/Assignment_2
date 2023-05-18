@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////
 
 
-////////////////////   V-20   ////////////////////
+////////////////////   V-50 TEST  ////////////////////
 
 
 package it.unipd.mtss;
@@ -15,10 +15,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class IntegerToRomanTest{
-
-    //TESTING: numUni, numDec, numCent, convert: <1; >1000;
-    // esempi ammissibili per partizoni
-
 
     @Test //?????? DA SOSTITUIRE "assertTrue"
     //!!!!!!!!!!!!!!! DA REALIZZARE !!!!!!!!!!!!!!!!!!!!!!!
@@ -189,8 +185,68 @@ public class IntegerToRomanTest{
 
     @Test //?????? DA SOSTITUIRE "assertTrue"
     public void testConvert_ConInputVentuno(){
+        String expected = "XX";
+        int number = 20;
+
+        String result = convert(number);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test //?????? DA SOSTITUIRE "assertTrue"
+    public void testConvert_ConInputTrentanove(){
+        String expected = "XXXIX";
+        int number = 39;
+
+        String result = convert(number);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test //?????? DA SOSTITUIRE "assertTrue"
+    public void testConvert_ConInputQuaranta(){
+        String expected = "XL";
+        int number = 40;
+
+        String result = convert(number);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test //?????? DA SOSTITUIRE "assertTrue"
+    public void testConvert_ConInputQuarantuno(){
+        String expected = "XLI";
+        int number = 41;
+
+        String result = convert(number);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test //?????? DA SOSTITUIRE "assertTrue"
+    public void testConvert_ConInputQuaranove(){
+        String expected = "XLIX";
+        int number = 49;
+
+        String result = convert(number);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test //?????? DA SOSTITUIRE "assertTrue"
+    public void testConvert_ConInputCinquanta(){
+        String expected = "L";
+        int number = 50;
+
+        String result = convert(number);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test //?????? DA SOSTITUIRE "assertTrue"
+    public void testConvert_ConInputCinquantuno(){
         String expected = null;
-        int number = 21;
+        int number = 51;
         boolean correct = true;
 
         String result = convert(number);
