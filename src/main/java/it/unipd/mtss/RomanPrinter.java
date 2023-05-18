@@ -3,7 +3,7 @@
 // Dmitry Pluzhnikov 1169886
 ////////////////////////////////////////////////////////////////////
 
-////////////////////   V-50   ////////////////////
+////////////////////   V-100   ////////////////////
 
 package it.unipd.mtss;
 
@@ -57,17 +57,25 @@ public class RomanPrinter {
         return str_L;
     }
 
+    protected static String print_C() {
+        String str_C = "  _____\n"+
+                      " / ____|\n"+
+                      "| |\n"+
+                      "| |\n"+
+                      "| |____\n"+
+                      " \\_____|\n";
+
+        System.out.println(str_C);
+        return str_C;
+    }
+
     protected static boolean isStrangeInput(String romanNumber) {
         boolean correctInput = true;
 
         if(romanNumber == null) { correctInput = false; }
 
         // ???? DA TOGLIERE ??????
-        else if(romanNumber.length() < 1 || romanNumber.length() > 7) {
-            correctInput = false;
-        }
-
-        else if(romanNumber.length() > 1 && romanNumber.charAt(0) == 'L') {
+        else if(romanNumber.length() < 1 || romanNumber.length() > 8) {
             correctInput = false;
         }
 
@@ -96,8 +104,10 @@ public class RomanPrinter {
 
         for (int i = 0; correctInput && i < romanNumber.length(); i++){
             char aux = romanNumber.charAt(i);
-            if( aux != 'I' && aux != 'V' && aux != 'X' && aux != 'L') {
-                correctInput = false;
+            if(aux != 'I' && aux != 'V' ){
+                if(aux != 'X' && aux != 'L'&& aux!='C') {
+                    correctInput = false;
+                }
             }
         }
 
@@ -115,6 +125,7 @@ public class RomanPrinter {
                 else if(aux == 'V') { stringaAscii += print_V(); }
                 else if(aux == 'X') { stringaAscii += print_X(); }
                 else if(aux == 'L') { stringaAscii += print_L(); }
+                else if(aux == 'C') { stringaAscii += print_C(); }
             }
         }
 
