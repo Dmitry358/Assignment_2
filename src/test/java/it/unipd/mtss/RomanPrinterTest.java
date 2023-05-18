@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////
 
 
-////////////////////   V-10   ////////////////////
+////////////////////   V-20   ////////////////////
 
 
 package it.unipd.mtss;
@@ -78,7 +78,7 @@ public class RomanPrinterTest {
 
 //------------- testPrint_I, testPrint_V, testPrint_X  END  ----------
 
-    //--------------------- isInputCorrect BEGIN ---------
+//--------------------- isInputCorrect BEGIN ---------
     @Test
     public void testisInputCorrect_ConStringaNulla(){
         String romanNumber = null;
@@ -236,6 +236,46 @@ public class RomanPrinterTest {
     @Test
     public void testisInputCorrect_Con_XI(){
         String romanNumber = "XI";
+        boolean expected = true;
+
+        boolean result = isInputCorrect(romanNumber);
+
+        assertTrue(expected == result);
+    }
+
+    @Test
+    public void testisInputCorrect_Con_XVIII(){
+        String romanNumber = "XVIII";
+        boolean expected = true;
+
+        boolean result = isInputCorrect(romanNumber);
+
+        assertTrue(expected == result);
+    }
+
+    @Test
+    public void testisInputCorrect_Con_XIX(){
+        String romanNumber = "XIX";
+        boolean expected = true;
+
+        boolean result = isInputCorrect(romanNumber);
+
+        assertTrue(expected == result);
+    }
+
+    @Test
+    public void testisInputCorrect_Con_XX(){
+        String romanNumber = "XX";
+        boolean expected = true;
+
+        boolean result = isInputCorrect(romanNumber);
+
+        assertTrue(expected == result);
+    }
+
+    @Test
+    public void testisInputCorrect_Con_XXI(){
+        String romanNumber = "XXI";
         boolean expected = false;
 
         boolean result = isInputCorrect(romanNumber);
@@ -243,8 +283,7 @@ public class RomanPrinterTest {
         assertTrue(expected == result);
     }
 
-
-//------------- isInputCorrect END   ---------
+//------------- isInputCorrect END   -------------------
 
 //------------- testPrintAsciiArt BEGIN ----------------
 
@@ -306,11 +345,11 @@ public class RomanPrinterTest {
     public void testPrintAsciiArt_Con_I(){
         String romanNumber = "I";
         String expected = " _____\n"+
-                          "|_   _|\n"+
-                          "  | |\n"+
-                          "  | |\n"+
-                          " _| |_\n"+
-                          "|_____|\n";
+                "|_   _|\n"+
+                "  | |\n"+
+                "  | |\n"+
+                " _| |_\n"+
+                "|_____|\n";
 
         String result = printAsciiArt(romanNumber);
 
@@ -321,17 +360,17 @@ public class RomanPrinterTest {
     public void testPrintAsciiArt_Con_II(){
         String romanNumber = "II";
         String expected = " _____\n"+
-                          "|_   _|\n"+
-                          "  | |\n"+
-                          "  | |\n"+
-                          " _| |_\n"+
-                          "|_____|\n"+
-                          " _____\n"+
-                          "|_   _|\n"+
-                          "  | |\n"+
-                          "  | |\n"+
-                          " _| |_\n"+
-                          "|_____|\n";
+                "|_   _|\n"+
+                "  | |\n"+
+                "  | |\n"+
+                " _| |_\n"+
+                "|_____|\n"+
+                " _____\n"+
+                "|_   _|\n"+
+                "  | |\n"+
+                "  | |\n"+
+                " _| |_\n"+
+                "|_____|\n";
 
         String result = printAsciiArt(romanNumber);
 
@@ -342,23 +381,23 @@ public class RomanPrinterTest {
     public void testPrintAsciiArt_Con_III(){
         String romanNumber = "III";
         String expected = " _____\n"+
-                          "|_   _|\n"+
-                          "  | |\n"+
-                          "  | |\n"+
-                          " _| |_\n"+
-                          "|_____|\n"+
-                          " _____\n"+
-                          "|_   _|\n"+
-                          "  | |\n"+
-                          "  | |\n"+
-                          " _| |_\n"+
-                          "|_____|\n"+
-                          " _____\n"+
-                          "|_   _|\n"+
-                          "  | |\n"+
-                          "  | |\n"+
-                          " _| |_\n"+
-                          "|_____|\n";
+                "|_   _|\n"+
+                "  | |\n"+
+                "  | |\n"+
+                " _| |_\n"+
+                "|_____|\n"+
+                " _____\n"+
+                "|_   _|\n"+
+                "  | |\n"+
+                "  | |\n"+
+                " _| |_\n"+
+                "|_____|\n"+
+                " _____\n"+
+                "|_   _|\n"+
+                "  | |\n"+
+                "  | |\n"+
+                " _| |_\n"+
+                "|_____|\n";
 
         String result = printAsciiArt(romanNumber);
 
@@ -486,17 +525,17 @@ public class RomanPrinterTest {
         String romanNumber = "IX";
         String expected =
                 " _____\n"+
-                "|_   _|\n"+
-                "  | |\n"+
-                "  | |\n"+
-                " _| |_\n"+
-                "|_____|\n"+
-                "__    __\n"+
-                "\\ \\  / /\n"+
-                " \\ \\/ /\n"+
-                "  > <\n"+
-                " / . \\\n"+
-                "/_/ \\_\\\n";
+                        "|_   _|\n"+
+                        "  | |\n"+
+                        "  | |\n"+
+                        " _| |_\n"+
+                        "|_____|\n"+
+                        "__    __\n"+
+                        "\\ \\  / /\n"+
+                        " \\ \\/ /\n"+
+                        "  > <\n"+
+                        " / . \\\n"+
+                        "/_/ \\_\\\n";
 
         String result = printAsciiArt(romanNumber);
 
@@ -507,7 +546,7 @@ public class RomanPrinterTest {
     public void testPrintAsciiArt_Con_X(){
         String romanNumber = "X";
         String expected =
-                        "__    __\n"+
+                "__    __\n"+
                         "\\ \\  / /\n"+
                         " \\ \\/ /\n"+
                         "  > <\n"+
@@ -522,13 +561,121 @@ public class RomanPrinterTest {
     @Test
     public void testPrintAsciiArt_Con_XI(){
         String romanNumber = "XI";
+        String expected =
+                "__    __\n"+
+                        "\\ \\  / /\n"+
+                        " \\ \\/ /\n"+
+                        "  > <\n"+
+                        " / . \\\n"+
+                        "/_/ \\_\\\n"+
+                        " _____\n"+
+                        "|_   _|\n"+
+                        "  | |\n"+
+                        "  | |\n"+
+                        " _| |_\n"+
+                        "|_____|\n";
+
+        String result = printAsciiArt(romanNumber);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test
+    public void testPrintAsciiArt_Con_XVIII(){
+        String romanNumber = "XVIII";
+        String expected =   "__    __\n"+
+                "\\ \\  / /\n"+
+                " \\ \\/ /\n"+
+                "  > <\n"+
+                " / . \\\n"+
+                "/_/ \\_\\\n"+
+                "__      __\n"+
+                "\\ \\    / /\n"+
+                " \\ \\  / /\n"+
+                "  \\ \\/ /\n"+
+                "   \\  /\n"+
+                "    \\/\n"+
+                " _____\n"+
+                "|_   _|\n"+
+                "  | |\n"+
+                "  | |\n"+
+                " _| |_\n"+
+                "|_____|\n"+
+                " _____\n"+
+                "|_   _|\n"+
+                "  | |\n"+
+                "  | |\n"+
+                " _| |_\n"+
+                "|_____|\n"+
+                " _____\n"+
+                "|_   _|\n"+
+                "  | |\n"+
+                "  | |\n"+
+                " _| |_\n"+
+                "|_____|\n";
+
+        String result = printAsciiArt(romanNumber);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test
+    public void testPrintAsciiArt_Con_XIX(){
+        String romanNumber = "XIX";
+        String expected = "__    __\n"+
+                        "\\ \\  / /\n"+
+                        " \\ \\/ /\n"+
+                        "  > <\n"+
+                        " / . \\\n"+
+                        "/_/ \\_\\\n"+
+                        " _____\n"+
+                        "|_   _|\n"+
+                        "  | |\n"+
+                        "  | |\n"+
+                        " _| |_\n"+
+                        "|_____|\n"+
+                "__    __\n"+
+                "\\ \\  / /\n"+
+                " \\ \\/ /\n"+
+                "  > <\n"+
+                " / . \\\n"+
+                "/_/ \\_\\\n";
+
+        String result = printAsciiArt(romanNumber);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test
+    public void testPrintAsciiArt_Con_XX(){
+        String romanNumber = "XX";
+        String expected = "__    __\n"+
+                "\\ \\  / /\n"+
+                " \\ \\/ /\n"+
+                "  > <\n"+
+                " / . \\\n"+
+                "/_/ \\_\\\n"+
+                "__    __\n"+
+                "\\ \\  / /\n"+
+                " \\ \\/ /\n"+
+                "  > <\n"+
+                " / . \\\n"+
+                "/_/ \\_\\\n";
+
+        String result = printAsciiArt(romanNumber);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test
+    public void testPrintAsciiArt_Con_XXI(){
+        String romanNumber = "XXI";
         String expected = null;
 
         String result = printAsciiArt(romanNumber);
 
         assertTrue(expected == result);
     }
-
 
 //--------------------- testPrintAsciiArt END -------------------
 
@@ -785,6 +932,115 @@ public class RomanPrinterTest {
     @Test
     public void testPrint_ConUndici(){
         int romanNumber = 11;
+        String expected =
+                "__    __\n"+
+                        "\\ \\  / /\n"+
+                        " \\ \\/ /\n"+
+                        "  > <\n"+
+                        " / . \\\n"+
+                        "/_/ \\_\\\n"+
+                        " _____\n"+
+                        "|_   _|\n"+
+                        "  | |\n"+
+                        "  | |\n"+
+                        " _| |_\n"+
+                        "|_____|\n";
+
+        String result = print(romanNumber);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test
+    public void testPrint_ConDiciotto(){
+        int romanNumber = 18;
+        String expected =   "__    __\n"+
+                "\\ \\  / /\n"+
+                " \\ \\/ /\n"+
+                "  > <\n"+
+                " / . \\\n"+
+                "/_/ \\_\\\n"+
+                "__      __\n"+
+                "\\ \\    / /\n"+
+                " \\ \\  / /\n"+
+                "  \\ \\/ /\n"+
+                "   \\  /\n"+
+                "    \\/\n"+
+                " _____\n"+
+                "|_   _|\n"+
+                "  | |\n"+
+                "  | |\n"+
+                " _| |_\n"+
+                "|_____|\n"+
+                " _____\n"+
+                "|_   _|\n"+
+                "  | |\n"+
+                "  | |\n"+
+                " _| |_\n"+
+                "|_____|\n"+
+                " _____\n"+
+                "|_   _|\n"+
+                "  | |\n"+
+                "  | |\n"+
+                " _| |_\n"+
+                "|_____|\n";
+
+        String result = print(romanNumber);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test
+    public void testPrint_ConDicianove(){
+        int romanNumber = 19;
+        String expected = "__    __\n"+
+                "\\ \\  / /\n"+
+                " \\ \\/ /\n"+
+                "  > <\n"+
+                " / . \\\n"+
+                "/_/ \\_\\\n"+
+                " _____\n"+
+                "|_   _|\n"+
+                "  | |\n"+
+                "  | |\n"+
+                " _| |_\n"+
+                "|_____|\n"+
+                "__    __\n"+
+                "\\ \\  / /\n"+
+                " \\ \\/ /\n"+
+                "  > <\n"+
+                " / . \\\n"+
+                "/_/ \\_\\\n";
+
+        String result = print(romanNumber);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test
+    public void testPrint_ConVenti(){
+        int romanNumber = 20;
+        String expected = "__    __\n"+
+                "\\ \\  / /\n"+
+                " \\ \\/ /\n"+
+                "  > <\n"+
+                " / . \\\n"+
+                "/_/ \\_\\\n"+
+                "__    __\n"+
+                "\\ \\  / /\n"+
+                " \\ \\/ /\n"+
+                "  > <\n"+
+                " / . \\\n"+
+                "/_/ \\_\\\n";
+
+        String result = print(romanNumber);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test
+    public void testPrint_ConVentuno(){
+        int romanNumber = 21;
         String expected = null;
 
         String result = print(romanNumber);
