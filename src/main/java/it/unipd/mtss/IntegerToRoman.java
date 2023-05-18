@@ -3,7 +3,7 @@
 // Dmitry Pluzhnikov 1169886
 ////////////////////////////////////////////////////////////////////
 
-////////////////////   V-6   ////////////////////
+////////////////////   V-10   ////////////////////
 
 package it.unipd.mtss;
 
@@ -19,6 +19,11 @@ public class IntegerToRoman{
         else if(number == 4) { result = "IV"; }
         else if(number == 5) { result = "V"; }
         else if(number == 6) { result = "VI"; }
+        else if(number == 7) { result = "VII"; }
+        else if(number == 8) { result = "VIII"; }
+        else if(number == 9) { result = "IX"; }
+        else if(number == 10) { result = "X"; }
+
         return result;
     }
 
