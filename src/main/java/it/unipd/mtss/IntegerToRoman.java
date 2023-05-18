@@ -3,7 +3,7 @@
 // Dmitry Pluzhnikov 1169886
 ////////////////////////////////////////////////////////////////////
 
-////////////////////   V-20   ////////////////////
+////////////////////   V-50   ////////////////////
 
 package it.unipd.mtss;
 
@@ -47,19 +47,45 @@ public class IntegerToRoman{
     }
 
     public static String convert(int number) {
-        if(number > 20 || number < 1) { return null; }
         String result = "";
 
-       // 20 >= num_dec >= 1
-       for (int i = 1; i <= number / 10; i++) { result += "X"; }
+        if(number > 50 || number < 1) { return null; }
 
-       String uni = numUni(number % 10);
+        // num_dec == 50
+        else if(number == 50) { return "L";}
 
-       if(uni != null) { result+=uni; }
+        // 49 >= num_dec >= 1
+        else if(number > 0){
 
-       return result.isEmpty() ? null : result;
+            // 49 >= num >= 1
+            if (number / 40 >= 1) {
+                result += "XL";
+                if (number % 10 > 0) {
+                    // 9 >= num >= 1
+                    result += numUni(number % 10);
+                }
+            }
+
+            // 39 >= num >= 1
+            else {
+                // 39 >= num >= 30
+                for (int i = 1; i <= number / 10; i++) {
+                    result += "X";
+                }
+
+                if (number % 10 > 0) {
+                    // 9 >= num >= 1
+                    result += numUni(number % 10);
+                }
+
+            }
+        }
+
+        // 9 >= num >= 1
+        //result += numUni(number % 10);
+
+
+        return result.isEmpty() ? null : result;
     }
 
 }
-
-
