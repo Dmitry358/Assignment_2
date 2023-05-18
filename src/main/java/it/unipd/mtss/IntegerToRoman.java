@@ -3,7 +3,7 @@
 // Dmitry Pluzhnikov 1169886
 ////////////////////////////////////////////////////////////////////
 
-////////////////////   V-50   ////////////////////
+////////////////////   V-100   ////////////////////
 
 package it.unipd.mtss;
 
@@ -46,19 +46,55 @@ public class IntegerToRoman{
         return result.isEmpty() ? null : result;
     }
 
-    public static String convert(int number) {
+    protected static String stampaDaCentoACinquanta(int number){
         String result = "";
 
-        if(number > 50 || number < 1) { return null; }
+        // num_dec == 100
+        if(number == 100) { return "C"; }
 
-        // num_dec == 50
-        else if(number == 50) { return "L";}
+        // 99 >= num_dec >= 90
+        else if (number / 90 >= 1){
+            result += "XC";
+            if (number % 10 > 0) {
+                // 9 >= num >= 1
+                result += numUni(number % 10);
+            }
+        }
 
-        // 49 >= num_dec >= 1
-        else if(number > 0){
+        // 89 >= num >= 1
+        else if(number/51>=1) {
+            result += "L";
 
             // 49 >= num >= 1
-            if (number / 40 >= 1) {
+            for (int i = 1; i <= (number - 50) / 10; i++){
+                result += "X";
+            }
+
+            // 9 >= num >= 1
+            if (number % 10 > 0) {
+                result += numUni(number % 10);
+            }
+        }
+
+        // num_dec == 50
+        else if(number == 50) {
+            return "L";
+        }
+
+        return result;
+    }
+
+    public static String convert(int number) {
+        String result = "";
+        if(number > 100 || number < 1) { return null; }
+
+        result += stampaDaCentoACinquanta(number);
+
+        // 49 >= num_dec >= 1
+        if(number > 0 && number < 50){
+
+            // 49 >= num >= 1
+            if (number / 40 >= 1 ) {
                 result += "XL";
                 if (number % 10 > 0) {
                     // 9 >= num >= 1
@@ -77,15 +113,11 @@ public class IntegerToRoman{
                     // 9 >= num >= 1
                     result += numUni(number % 10);
                 }
-
             }
         }
-
-        // 9 >= num >= 1
-        //result += numUni(number % 10);
-
 
         return result.isEmpty() ? null : result;
     }
 
 }
+
