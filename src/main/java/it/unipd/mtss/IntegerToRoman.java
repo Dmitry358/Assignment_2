@@ -3,7 +3,7 @@
 // Dmitry Pluzhnikov 1169886
 ////////////////////////////////////////////////////////////////////
 
-////////////////////   V-500   ////////////////////
+////////////////////   V-1000   ////////////////////
 
 package it.unipd.mtss;
 
@@ -95,8 +95,28 @@ public class IntegerToRoman{
     protected static String numCentinaia(int number){
         String result = "";
 
-        // num == 500
-        if(number == 500) { return "D"; }
+        // num == 1000
+        if(number == 1000) { return "M"; }
+
+        // 999 >= num >= 900
+        else if (number / 900 >= 1) {
+            result += "CM";
+
+            // 99 >= num >= 1
+            if (number % 100 > 0) {
+                result += numDecine(number % 100);
+            }
+        }
+
+        // 899 >= num >= 500
+        else if(number / 500 >= 1){
+            result += "D";
+
+            for (int i = 1; i <= (number - 500) / 100; i++) { result += "C"; }
+
+            // 9 >= num >= 1
+            if (number % 100 > 0) { result += numDecine(number % 100); }
+        }
 
         // 499 >= num >= 400
         else if (number / 400 >= 1) {
@@ -123,7 +143,7 @@ public class IntegerToRoman{
     public static String convert(int number) {
         String result = "";
 
-        if(number > 500 || number < 1) { return null; }
+        if(number > 1000 || number < 1) { return null; }
 
         result += numCentinaia(number);
 
@@ -131,5 +151,7 @@ public class IntegerToRoman{
     }
 
 }
+
+
 
 
