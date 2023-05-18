@@ -3,7 +3,7 @@
 // Dmitry Pluzhnikov 1169886
 ////////////////////////////////////////////////////////////////////
 
-////////////////////   V-100   ////////////////////
+////////////////////   V-500   ////////////////////
 
 package it.unipd.mtss;
 
@@ -46,78 +46,90 @@ public class IntegerToRoman{
         return result.isEmpty() ? null : result;
     }
 
-    protected static String stampaDaCentoACinquanta(int number){
+    protected static String numDecine(int number){
+
         String result = "";
 
-        // num_dec == 100
-        if(number == 100) { return "C"; }
-
-        // 99 >= num_dec >= 90
-        else if (number / 90 >= 1){
+        // 99 >= num >= 90
+        if (number / 90 >= 1){
             result += "XC";
-            if (number % 10 > 0) {
-                // 9 >= num >= 1
-                result += numUni(number % 10);
-            }
+
+            // 9 >= num >= 1
+            if (number % 10 > 0) { result += numUni(number % 10); }
         }
 
-        // 89 >= num >= 1
-        else if(number/51>=1) {
+        // 89 >= num >= 50
+        else if(number/50 >= 1) {
             result += "L";
 
-            // 49 >= num >= 1
             for (int i = 1; i <= (number - 50) / 10; i++){
                 result += "X";
             }
 
             // 9 >= num >= 1
-            if (number % 10 > 0) {
-                result += numUni(number % 10);
-            }
+            if (number % 10 > 0) { result += numUni(number % 10); }
         }
 
-        // num_dec == 50
-        else if(number == 50) {
-            return "L";
+        // 49 >= num >= 40
+        else if (number / 40 >= 1 ) {
+            result += "XL";
+
+            // 9 >= num >= 1
+            if (number % 10 > 0) { result += numUni(number % 10); }
         }
 
-        return result;
-    }
-
-    public static String convert(int number) {
-        String result = "";
-        if(number > 100 || number < 1) { return null; }
-
-        result += stampaDaCentoACinquanta(number);
-
-        // 49 >= num_dec >= 1
-        if(number > 0 && number < 50){
-
-            // 49 >= num >= 1
-            if (number / 40 >= 1 ) {
-                result += "XL";
-                if (number % 10 > 0) {
-                    // 9 >= num >= 1
-                    result += numUni(number % 10);
-                }
+        // 39 >= num >= 1
+        else {
+            // 39 >= num >= 10
+            for (int i = 1; i <= number / 10; i++) {
+                result += "X";
             }
 
-            // 39 >= num >= 1
-            else {
-                // 39 >= num >= 30
-                for (int i = 1; i <= number / 10; i++) {
-                    result += "X";
-                }
-
-                if (number % 10 > 0) {
-                    // 9 >= num >= 1
-                    result += numUni(number % 10);
-                }
-            }
+            // 9 >= num >= 1
+            if (number % 10 > 0) { result += numUni(number % 10); }
         }
 
         return result.isEmpty() ? null : result;
     }
 
+    protected static String numCentinaia(int number){
+        String result = "";
+
+        // num == 500
+        if(number == 500) { return "D"; }
+
+        // 499 >= num >= 400
+        else if (number / 400 >= 1) {
+            result += "CD";
+
+            // 99 >= num >= 1
+            if (number % 100 > 0) {
+                result += numDecine(number % 100);
+            }
+        }
+
+        // 399 >= num >= 1
+        else {
+            // 399 >= num >= 100
+            for (int i = 1; i <= number / 100; i++) { result += "C"; }
+
+            // 9 >= num >= 1
+            if (number % 100 > 0) { result += numDecine(number % 100); }
+        }
+
+        return result.isEmpty() ? null : result;
+    }
+
+    public static String convert(int number) {
+        String result = "";
+
+        if(number > 500 || number < 1) { return null; }
+
+        result += numCentinaia(number);
+
+        return result.isEmpty() ? null : result;
+    }
+
 }
+
 
