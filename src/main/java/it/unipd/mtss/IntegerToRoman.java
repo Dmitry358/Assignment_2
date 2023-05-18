@@ -3,7 +3,7 @@
 // Dmitry Pluzhnikov 1169886
 ////////////////////////////////////////////////////////////////////
 
-////////////////////   V-3   ////////////////////
+////////////////////   V-6   ////////////////////
 
 package it.unipd.mtss;
 
@@ -13,13 +13,14 @@ public class IntegerToRoman{
 
     public static String convert(int number){
         String result = null;
-        switch (number){
-            case (1): result = "I"; break;
-            case (2): result = "II"; break;
-            case (3): result = "III"; break;
-            default: result = null;
-        }
+        if(number == 1) { result = "I"; }
+        else if(number == 2) { result = "II"; }
+        else if(number == 3) { result = "III"; }
+        else if(number == 4) { result = "IV"; }
+        else if(number == 5) { result = "V"; }
+        else if(number == 6) { result = "VI"; }
         return result;
-   }
+    }
+
 
 }
