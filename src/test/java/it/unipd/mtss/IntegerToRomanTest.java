@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////
 
 
-////////////////////   V-6   ////////////////////
+////////////////////   V-10   ////////////////////
 
 
 package it.unipd.mtss;
@@ -125,8 +125,56 @@ public class IntegerToRomanTest{
 
     @Test //?????? DA SOSTITUIRE "assertTrue"
     public void testConvert_ConInputSette(){
-        String expected = null;
+        String expected = "VII";
         int number = 7;
+        boolean correct = true;
+
+        String result = convert(number);
+        if(expected != result) { correct = false;}
+
+        assertTrue(correct);
+    }
+
+    @Test //?????? DA SOSTITUIRE "assertTrue"
+    public void testConvert_ConInputOtto(){
+        String expected = "VIII";
+        int number = 8;
+        boolean correct = true;
+
+        String result = convert(number);
+        if(expected != result) { correct = false;}
+
+        assertTrue(correct);
+    }
+
+    @Test //?????? DA SOSTITUIRE "assertTrue"
+    public void testConvert_ConInputNove(){
+        String expected = "IX";
+        int number = 9;
+        boolean correct = true;
+
+        String result = convert(number);
+        if(expected != result) { correct = false;}
+
+        assertTrue(correct);
+    }
+
+    @Test //?????? DA SOSTITUIRE "assertTrue"
+    public void testConvert_ConInputDieci(){
+        String expected = "X";
+        int number = 10;
+        boolean correct = true;
+
+        String result = convert(number);
+        if(expected != result) { correct = false;}
+
+        assertTrue(correct);
+    }
+
+    @Test //?????? DA SOSTITUIRE "assertTrue"
+    public void testConvert_ConInputUndici(){
+        String expected = null;
+        int number = 11;
         boolean correct = true;
 
         String result = convert(number);
