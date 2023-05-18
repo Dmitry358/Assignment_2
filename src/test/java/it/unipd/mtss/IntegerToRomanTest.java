@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////
 
 
-////////////////////   V-500 TEST  ////////////////////
+////////////////////   V-1000 TEST  ////////////////////
 
 
 package it.unipd.mtss;
@@ -350,7 +350,7 @@ public class IntegerToRomanTest{
     }
 
     @Test
-    public void testConvert_ConInputQuattrocentonovantuno() {
+    public void testConvert_ConInputQuattrocentonovantanove() {
         String expected = "CDXCIX";
         int number = 499;
 
@@ -371,15 +371,107 @@ public class IntegerToRomanTest{
 
     @Test
     public void testConvert_ConInputCinquecentouno(){
-        String expected = null;
+        String expected = "DI";
         int number = 501;
-        boolean correct = true;
 
         String result = convert(number);
-        if(expected != result) { correct = false;}
 
-        assertTrue(correct);
+        assertTrue(expected.equals(result));
     }
+
+    @Test
+    public void testConvert_ConInputOttocentootantaotto() {
+        String expected = "DCCCLXXXVIII";
+        int number = 888;
+
+        String result = convert(number);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test
+    public void testConvert_ConInputOttocentootantanove() {
+        String expected = "DCCCLXXXIX";
+        int number = 889;
+
+        String result = convert(number);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test
+    public void testConvert_ConInputOttocentonovanta() {
+        String expected = "DCCCXC";
+        int number = 890;
+
+        String result = convert(number);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test
+    public void testConvert_ConInputOttocentonovantuno() {
+        String expected = "DCCCXCI";
+        int number = 891;
+
+        String result = convert(number);
+
+        assertTrue(expected.equals(result));
+    }
+
+
+
+    @Test
+    public void testConvert_ConInputNovecentootantanove() {
+        String expected = "CMLXXXIX";
+        int number = 989;
+
+        String result = convert(number);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test
+    public void testConvert_ConInputNovecentonovanta() {
+        String expected = "CMXC";
+        int number = 990;
+
+        String result = convert(number);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test
+    public void testConvert_ConInputNovecentonovantuno() {
+        String expected = "CMXCI";
+        int number = 991;
+
+        String result = convert(number);
+
+        assertTrue(expected.equals(result));
+    }
+
+    @Test
+    public void testConvert_ConInputNovecentonovantanove() {
+        String expected = "CMXCIX";
+        int number = 999;
+
+        String result = convert(number);
+
+        assertTrue(expected.equals(result));
+    }
+
+
+    @Test
+    public void testConvert_ConInputMille() {
+        String expected = "M";
+        int number = 1000;
+
+        String result = convert(number);
+
+        assertTrue(expected.equals(result));
+    }
+
 
     @Test
     public void testConvert_ConInputMilleUno(){
